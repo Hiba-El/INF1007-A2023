@@ -45,3 +45,4 @@ if estMinutesNonNull:
     affihcerResultat = affihcerResultat + str(minutes)+" minutes"
 
 print("En", s, "secondes, on a:", affihcerResultat+" et", str(s_restantes)+" secondes.")
+
