@@ -1,5 +1,5 @@
 # Demande à l'utilisateur de saisir le nombre de secondes
-s = float(input("Entrez le nombre de secondes:"))
+s = int(input("Entrez le nombre de secondes: "))
 
 # Calcul du nombre d'années contenant ces secondes (en supposant une année de 365 jours)
 annees = s // 31536000
@@ -20,7 +20,7 @@ s_restantes = s_restantes - 3600*heures
 # Calcul du nombre de minutes restantes dans le reste des secondes
 minutes = s_restantes // 60
 s_restantes = s_restantes - 60*minutes
-print("En", s, ",on a:")
+print("En", s, "secondes, on a: ")
 
 # Affichage du nombre d'années, de semaines, de jours, d'heures, de minutes et de secondes
 estAnneesNonNull   = annees >= 1
@@ -30,16 +30,16 @@ estHeursNonNull    = heures >= 1
 estMinutesNonNull  = minutes >= 1
 
 if estAnneesNonNull:
-    print(annees, "annees,")
+    print(int(annees), "annees, ")
 
 if estSemainesNonNull:
-    print(semaines, "semaines,")
+    print(int(semaines), "semaines, ")
 
 if estJoursNonNull:
-    print(jours, "jours,")
+    print(int(jours), "jours, ")
 
 if estHeursNonNull:
-    print(heures, "heures,")
+    print(int(heures), "heures, ")
 
 if estMinutesNonNull:
-    print(minutes, "minutes et", s_restantes, "secondes.")
+    print(int(minutes), "minutes et", int(s_restantes), "secondes.")

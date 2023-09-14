@@ -1,19 +1,15 @@
 
 # Demandez à l'utilisateur d'entrer son poids en kg
-
-p = float(input("Entrez votre poids en kg:"))
+p = float(input("Entrez votre poids en kg: "))
 
 # Demandez à l'utilisateur d'entrer sa taille en mètres
-
-t = float(input("Entrez votre taille en m:"))
+t = float(input("Entrez votre taille en m: "))
 
 # Calculez l'Indice de Masse Corporelle (IMC) en utilisant la formule IMC = poids / (taille^2)
-
 imc = p/(t**2)
 
 # Affichez l'IMC avec une précision de deux décimales
-
-print(round(imc, 2))
+print("Votre IMC est:", round(imc, 2))
 
 # Définissez des conditions pour déterminer la catégorie de poids en fonction de l'IMC
 # Si l'IMC est inférieur à 18.5, la personne est en sous-poids
