@@ -12,38 +12,49 @@ nom = input("Entrez votre nom:")
 
 # Affiche un message de salutation en utilisant les valeurs saisies pour le prenom et le nom.
 
-print(prenom) ---- Print le nom et le prenom avant ou apres
+print(prenom) ---- Print le nom et le prenom avant ou apres = Pas besoin de print les 2 prénoms
 print(nom)
 input("Bonjour "+prenom+" "+nom+"!")
+
+Questions :
+1. Restreint la personne a mettre seulement une chaine de caracteres ?
 
 
 2)
 
 # On demande à l'utilisateur d'entrer la longueur du rectangle en tant que nombre décimal (float).
-
-input(
+longueur=float(input("entrer la longueur du rectangle:"))
 
 # On demande à l'utilisateur d'entrer la largeur du rectangle en tant que nombre décimal (float).
+largeur=float(input("entrer la largeur du rectangle:"))
 
 # On calcule le périmètre du rectangle en utilisant la formule : 2 * (longueur + largeur).
+p=2 * (longueur + largeur)
 
 # On calcule l'aire du rectangle en utilisant la formule : longueur * largeur.
+a=longueur * largeur
 
 # On affiche le périmètre du rectangle.
-
+print("le périmètre du rectangle est:", p)
 # On affiche l'aire du rectangle.
-
+print("l'aire du rectangle est:", p)
 
 3)
 # Demande à l'utilisateur d'entrer une phrase.
+phrase = input("Entrez une phrase:")
 
 # Divise la phrase en mots en utilisant l'espace comme séparateur et compte le nombre de mots
 
+nombre_mots = len(phrase.split)
+
+
 # Affiche le nombre de mots dans la phrase
+
+print("Le nombre de mots est:",nombre_mots)
 
 # Affiche la phrase en lettres majuscules
 
-
+print(upper(phrase))
 
 4)
 
@@ -87,6 +98,70 @@ elif estDivision:
 # Si l'opération choisie n'est pas valide, affiche un message d'erreur
 else:
 
+QUESTION : pas le cas
+
+Mettre sans décimales, mettre des espaces pour la premiere partie, quand c'est un nombre plus que 4 ...
+
+
+Exemple madame :
+
+# Affiche un menu d'opérations disponibles
+
+print("""Choisissez une operation:
+      1. Addition
+      2. Soustraction
+      3. Multiplication
+      4. Division""")
+
+# Demande à l'utilisateur de saisir le numéro de l'opération choisie
+operation = int(input(""))
+
+# Si l'opération choisie n'est pas valide, affiche un message d'erreur
+#if operation != (1, 2, 3, 4):
+#    print("Operation non-valide!")
+#    quit()
+
+# Demande à l'utilisateur de saisir deux nombres
+if operation == 1 or operation == 2 or operation == 3 or operation == 4 :
+    premier_nombre= float(input("Entrez le premier nombre:"))
+    deuxieme_nombre= float(input("Entrez le deuxieme nombre:"))
+
+# Vérifie si l'opération choisie correspond à l'addition
+estAddition = 1
+# Vérifie si l'opération choisie correspond à la soustraction
+estSoustraction = 2
+# Vérifie si l'opération choisie correspond à la multiplication
+estMultiplication = 3
+# Vérifie si l'opération choisie correspond à la division
+estDivision = 4
+
+
+# Si l'opération choisie est l'addition, affiche le résultat de l'addition
+if operation == estAddition:
+    print("resultat : ",premier_nombre+deuxieme_nombre)
+
+# Si l'opération choisie est la soustraction, affiche le résultat de la soustraction
+elif operation == estSoustraction:
+    print("resultat : ",premier_nombre-deuxieme_nombre)
+
+# Si l'opération choisie est la multiplication, affiche le résultat de la multiplication
+elif operation == estMultiplication:
+    print("resultat : ",premier_nombre * deuxieme_nombre)
+
+# Si l'opération choisie est la division
+elif operation == estDivision:
+    # Vérifie si la division par zéro est tentée
+    conditionDivisionZero = deuxieme_nombre == 0
+    # Si la division par zéro est tentée, affiche une erreur
+    if conditionDivisionZero:
+        print("Erreur: Division par zero.")
+
+    # Sinon, affiche le résultat de la division
+    else:
+        print("resultat : ",premier_nombre / deuxieme_nombre)
+# Si l'opération choisie n'est pas valide, affiche un message d'erreur
+else:
+    print("Operation non-valide!")
 
 
 5)
