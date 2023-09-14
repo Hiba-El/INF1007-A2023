@@ -20,7 +20,6 @@ s_restantes = s_restantes - 3600*heures
 # Calcul du nombre de minutes restantes dans le reste des secondes
 minutes = s_restantes // 60
 s_restantes = s_restantes - 60*minutes
-print("En", s, "secondes, on a: ")
 
 # Affichage du nombre d'années, de semaines, de jours, d'heures, de minutes et de secondes
 estAnneesNonNull   = annees >= 1
@@ -28,18 +27,21 @@ estSemainesNonNull = semaines >= 1
 estJoursNonNull    = jours >= 1
 estHeursNonNull    = heures >= 1
 estMinutesNonNull  = minutes >= 1
+affihcerResultat= ""
 
 if estAnneesNonNull:
-    print(int(annees), "annees, ")
+    affihcerResultat = affihcerResultat + str(annees)+" annees, "
 
 if estSemainesNonNull:
-    print(int(semaines), "semaines, ")
+    affihcerResultat = affihcerResultat + str(semaines)+" semaines, "
 
 if estJoursNonNull:
-    print(int(jours), "jours, ")
+    affihcerResultat = affihcerResultat + str(jours)+" jours, "
 
 if estHeursNonNull:
-    print(int(heures), "heures, ")
+    affihcerResultat = affihcerResultat + str(heures)+" heures, "
 
 if estMinutesNonNull:
-    print(int(minutes), "minutes et", int(s_restantes), "secondes.")
+    affihcerResultat = affihcerResultat + str(minutes)+" minutes"
+
+print("En", s, "secondes, on a:", affihcerResultat+" et", str(s_restantes)+" secondes.")
