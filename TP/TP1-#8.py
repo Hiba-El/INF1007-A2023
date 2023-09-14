@@ -22,4 +22,3 @@ else:
     distance_K= distance / 0.621371
     print(distance, "miles equivalent a", round(distance_K, 2), "kilometres.")
 # Affichage du résultat de la conversion
-
