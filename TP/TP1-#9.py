@@ -62,7 +62,7 @@ else:
 
             # Afficher les deux instants
             print("Instant de l'impact:", instant_1, "et", instant_2)
-            print('je suis dans instant 1 et 2 positif')
+            #print('je suis dans instant 1 et 2 positif')
 
         else:
             # Afficher que le projectile n'atteint jamais l'altitude désirée.
