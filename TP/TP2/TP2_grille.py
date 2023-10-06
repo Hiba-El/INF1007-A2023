@@ -19,14 +19,14 @@ def creer_case(etat=Contenu.VIDE, animal=None):
 def creer_grille(nb_lignes, nb_colonnes):
     # TODO: Créer une matrice 2D de cases vides et la retourner sous forme de dictionnaire
     grille={}
-    liste2=[]
+    colonnes=[]
     #TODO: Dans le dictionnaire, ajouter des métadonnées décrites dans l'énoncé (nombre de proies, de prédateurs, etc.)
     for i in range(nb_lignes):
-        liste=[]
+        lignes=[]
         for n in range(nb_colonnes):
-            liste.append(creer_case())
-        liste2.append(liste)
-    grille['matrice']= liste2
+            lignes.append(creer_case())
+        colonnes.append(lignes)
+    grille['matrice']= colonnes
     grille['nb_proies'] = 0
     grille['nb_predateurs'] = 0
     grille['nb_lignes'] = nb_lignes
