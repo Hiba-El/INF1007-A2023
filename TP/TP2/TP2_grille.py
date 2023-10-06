@@ -39,3 +39,7 @@ def obtenir_case(grille, ligne, colonne):
     case = grille['matrice'][ligne][colonne]
     return case
 
+#13
+def obtenir_etat(grille, ligne, colonne):
+    etat = obtenir_case(grille,ligne,colonne)['etat']
+    return etat
