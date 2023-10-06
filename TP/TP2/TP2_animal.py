@@ -62,3 +62,6 @@ def ajouter_energie(animal, valeur):
 def definir_disponibilite(animal, disponibilite):
     # TODO: Mettre à jour l'état de disponibilité de l'animal en utilisant le paramètre permis (Booléen)
     animal["disponible"] = disponibilite
+
+
+
