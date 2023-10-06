@@ -33,15 +33,9 @@ def creer_grille(nb_lignes, nb_colonnes):
     grille['nb_colonnes'] = nb_colonnes
     return grille
 
-animal1 = creer_animal(age=5, energie=50)
-animal2 = creer_animal(age=3, jrs_gestation=1, energie=30)
-animal3 = creer_animal(age=2, disponible=False)
+#12
+def obtenir_case(grille, ligne, colonne):
+    # TODO:
+    case = grille['matrice'][ligne][colonne]
+    return case
 
-grille = creer_grille(2, 2)
-grille["matrice"][0][0]["etat"] = Contenu.PROIE
-grille["matrice"][0][0]["animal"] = animal1
-grille["matrice"][1][1]["etat"] = Contenu.PREDATEUR
-grille["matrice"][1][1]["animal"] = animal2
-grille["matrice"][1][0]["etat"] = Contenu.PROIE
-grille["matrice"][1][0]["animal"] = animal3
-print(grille )
