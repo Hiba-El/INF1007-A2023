@@ -115,4 +115,13 @@ def check_nb_proies(grille, max_val):
 def ajuster_position_pour_grille_circulaire(lig, col, dim_lig, dim_col):
     # : Ajuster la position (ligne, colonne) pour une grille circulaire en utilisant les dimensions de la grille.
     # Indice: Un modulo (%) peut être utile.
-    pass
+    if col >= dim_col:  #à droite
+        col = 0
+    elif col < 0: #à gauche
+        col = dim_col -1
+    elif lig >= dim_lig:
+        lig = 0
+    elif lig < 0:
+        lig = dim_lig - 1
+    return (lig, col)
+
