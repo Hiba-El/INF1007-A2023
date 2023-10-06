@@ -1,4 +1,3 @@
-
 #1
 
 def creer_animal(age=0, jrs_gestation=0, energie=15, disponible=True):
