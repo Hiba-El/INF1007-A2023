@@ -77,4 +77,42 @@ def obtenir_population(grille):
 
 def obtenir_dimensions(grille):
     # TODO: Retourner un tuple avec le nombre de lignes et de colonnes de la grille (Tuple[Int, Int])
+    dimensions = grille['nb_lignes'], grille['nb_colonnes']
+    return dimensions
+
+#20
+def incrementer_nb_proies(grille):
+    # TODO: Augmenter le compteur du nombre de proies dans la grille de 1 (Int)
+    grille['nb_proies'] +=1
+    return grille
+
+#21
+def decrementer_nb_proies(grille):
+    # TODO: Diminuer le compteur du nombre de proies dans la grille de 1 (Int)
+    if grille['nb_proies'] != 0:
+        grille['nb_proies'] -=1
+    return grille
+
+#22
+def incrementer_nb_predateurs(grille):
+    # TODO: Augmenter le compteur du nombre de prédateurs dans la grille de 1 (Int)
+    grille['nb_predateurs'] +=1
+    return grille
+#23
+def decrementer_nb_predateurs(grille):
+    # TODO: Diminuer le compteur du nombre de prédateurs dans la grille de 1 (Int)
+    if grille['nb_predateurs'] != 0:
+        grille['nb_predateurs'] -=1
+    return grille
+#24
+def check_nb_proies(grille, max_val):
+    # TODO: Vérifier si le nombre actuel de proies dans la grille est inférieur à max_val (Booléen)
+    if grille['nb_proies'] < max_val:
+        return True
+    elif grille['nb_proies'] >= max_val:
+        return False
+#25
+def ajuster_position_pour_grille_circulaire(lig, col, dim_lig, dim_col):
+    # TODO: Ajuster la position (ligne, colonne) pour une grille circulaire en utilisant les dimensions de la grille.
+    # Indice: Un modulo (%) peut être utile.
     pass
