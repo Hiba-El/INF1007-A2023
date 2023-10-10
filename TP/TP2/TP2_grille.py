@@ -125,3 +125,14 @@ def ajuster_position_pour_grille_circulaire(lig, col, dim_lig, dim_col):
         lig = lig % dim_lig
     return (lig, col)
 #return(lig%dim_lig, col%dim_col) #autre manière de faire la même chose mais en une seule ligne
+
+#26
+def choix_voisin_autour(grille, ligne, col, contenu: Contenu):
+    # TODO: Chercher tous les voisins autour de la cellule (ligne, col) qui correspondent au "contenu" donné (Enum).
+    # TODO: Renvoyer le nombre total de ces voisins, ainsi que les coordonnées d'un voisin choisi aléatoirement (Tuple).
+    #       Si le contenu n'est pas VIDE, le voisin doit être disponible (voir la fonction obtenir_disponibilite).
+    # Indice: Utiliser la fonction "ajuster_position_pour_grille_circulaire" pour ajuster les positions des voisins
+    # qui sont en dehors de la grille.
+
+
+#27
