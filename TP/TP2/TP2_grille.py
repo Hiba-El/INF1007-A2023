@@ -1,4 +1,5 @@
 from TP2_animal import creer_animal
+from TP2_animal import obtenir_disponibilite
 from enum import Enum
 import random
 class Contenu(Enum):
@@ -125,4 +126,29 @@ def ajuster_position_pour_grille_circulaire(lig, col, dim_lig, dim_col):
         lig = lig % dim_lig
     return (lig, col)
 
+#26
+def choix_voisin_autour(grille, ligne, col, contenu: Contenu):
+    # Chercher tous les voisins autour de la cellule (ligne, col) qui correspondent au "contenu" donné (Enum).
+    # Renvoyer le nombre total de ces voisins, ainsi que les coordonnées d'un voisin choisi aléatoirement (Tuple).
+    # Si le contenu n'est pas VIDE, le voisin doit être disponible (voir la fonction obtenir_disponibilite).
+    # Indice: Utiliser la fonction "ajuster_position_pour_grille_circulaire" pour ajuster les positions des voisins qui sont en dehors de la grille.
+    lig_voisin = None
+    lig_colonne = None
+    tabcases = []
+    nb_lig, nb_col = obtenir_dimensions(grille)
+    for i in range(ligne-1, ligne+1):
+        for j in range(col-1, col+1):
+            if i != ligne or j != col:
+                i2, j2 = ajuster_position_pour_grille_circulaire(ligne, col, nb_lig, nb_col)
+                animal = obtenir_animal(grille, i2, j2)
+                if obtenir_etat(grille, i2, j2) == contenu:
+                    if contenu == Contenu.VIDE or obtenir_disponibilite(animal) is False:
+                        tabcases.append(i2)
+                        tabcases.append(j2)
+    if not tabcases.count:
+        lig_voisin = random
+        col_voisin = random
+        return tabcases.count, lig_voisin, col_voisin
+    else:
+        return tabcases.count, None, None
 
