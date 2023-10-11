@@ -1,11 +1,37 @@
 from TP2_animal import creer_animal
 from TP2_animal import obtenir_disponibilite
+from TP2_animal import obtenir_energie
+from TP2_animal import obtenir_age
+from TP2_animal import obtenir_jours_gestation
+from TP2_animal import definir_jours_gestation
+from TP2_animal import ajouter_energie
 from enum import Enum
 import random
 class Contenu(Enum):
     VIDE = 0
     PROIE = 1
     PREDATEUR = 2
+
+NB_LIGNE = 25
+NB_COLONNE = 50
+
+MAX_AGE_PRED = 2000
+NB_JRS_PUBERTE_PRED = 90
+NB_JRS_GESTATION_PRED = 30
+MIN_SANTE_PRED = 0
+AJOUT_ENERGIE = 3
+MIN_ENERGIE = 15
+
+MAX_AGE_PROIE = 100
+NB_JRS_PUBERTE_PROIE = 15
+NB_JRS_GESTATION_PROIE = 9
+NB_MAX_PROIES = NB_LIGNE * NB_COLONNE / 2
+POURCENTAGE_CASES_PROIES = 0.5
+POURCENTAGE_CASES_PREDATEURS = 0.05
+
+MAX_ITERATION = 10000
+DUREE_CYCLE = 500  # Millisecondes
+DUREE_AVANT_REDEMARRAGE = 5000  # Millisecondes
 #10
 def creer_case(etat=Contenu.VIDE, animal=None):
     # : Créer et retourner un dictionnaire représentant une case.
@@ -27,7 +53,7 @@ def creer_grille(nb_lignes, nb_colonnes):
         for n in range(nb_colonnes):
             lignes.append(creer_case())
         colonnes.append(lignes)
-    grille['matrice']= colonnes
+    grille['matrice'] = colonnes
     grille['nb_proies'] = 0
     grille['nb_predateurs'] = 0
     grille['nb_lignes'] = nb_lignes
@@ -152,3 +178,49 @@ def choix_voisin_autour(grille, ligne, col, contenu: Contenu):
         return len(tabcases), None, None
 
 #27
+def remplir_grille(grille, pourcentage_proie, pourcentage_predateur):
+    nb_lignes, nb_col = obtenir_dimensions(grille)
+    nb_total_cases = int(nb_lignes*nb_col)
+    nb_proies = int(pourcentage_proie*nb_total_cases)
+    nb_predateurs = int(pourcentage_predateur*nb_total_cases)
+    positions_possibles = []
+    for i in range(nb_lignes):
+        for j in range(nb_col):
+            paire = i, j
+            positions_possibles.append(paire)
+    random.shuffle(positions_possibles)
+    for i in range(nb_proies):
+        position_proie = random.choice(positions_possibles)
+        age_proie = random.randint(0, MAX_AGE_PROIE)
+        if age_proie > NB_JRS_PUBERTE_PROIE:
+            jours_gestation = random.randint(0, NB_JRS_GESTATION_PROIE)
+        else:
+            jours_gestation = 0
+        case = creer_case()
+        proie = creer_animal()
+        case['animal'] = proie
+        case['animal']['age'] = age_proie
+        definir_jours_gestation(proie, jours_gestation)
+        definir_case(grille, case, position_proie[0], position_proie[1])
+        grille['nb_proies'] = nb_proies
+    for i in range(nb_predateurs):
+        position_predateur = random.choice(positions_possibles)
+        age_pred = random.randint(0, MAX_AGE_PRED)
+        if age_pred > NB_JRS_PUBERTE_PRED:
+            jours_gestation_pred = random.randint(0, NB_JRS_GESTATION_PRED)
+        else:
+            jours_gestation_pred = 0
+        case_pred = creer_case()
+        predateur = creer_animal()
+        case_pred['animal'] = predateur
+        case_pred['animal']['age'] = age_pred
+        definir_jours_gestation(predateur, jours_gestation_pred)
+        ajouter_energie(predateur, AJOUT_ENERGIE)
+        definir_case(grille, case_pred, position_predateur[0], position_predateur[1])
+        grille['nb_predateurs'] = nb_predateurs
+    return grille
+
+#28
+def rendre_animaux_disponibles(grille):
+    # TODO: Parcourir chaque case de la grille et rendre tous les animaux disponibles (Booléen à True) pour la prochaine itération.
+    pass
