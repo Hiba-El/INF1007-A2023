@@ -136,18 +136,19 @@ def choix_voisin_autour(grille, ligne, col, contenu: Contenu):
     col_voisin = None
     tabcases = []
     nb_lig, nb_col = obtenir_dimensions(grille)
-    for i in range(ligne-1, ligne+1):
-        for j in range(col-1, col+1):
+    for i in range(ligne-1, ligne+2):
+        for j in range(col-1, col+2):
             if i != ligne or j != col:
-                i2, j2 = ajuster_position_pour_grille_circulaire(ligne, col, nb_lig, nb_col)
+                i2, j2 = ajuster_position_pour_grille_circulaire(i, j, nb_lig, nb_col)
                 animal = obtenir_animal(grille, i2, j2)
                 if obtenir_etat(grille, i2, j2) == contenu:
-                    if contenu == Contenu.VIDE or obtenir_disponibilite(animal) is False:
-                        tabcases.append(i2)
-                        tabcases.append(j2)
-    if not tabcases.count:
-        lig_voisin = random
-        col_voisin = random
-        return tabcases.count, lig_voisin, col_voisin
+                    if contenu == Contenu.VIDE or obtenir_disponibilite(animal):
+                        paire = i2, j2
+                        tabcases.append(paire)
+    if len(tabcases) != 0:
+        lig_voisin, col_voisin = random.choice(tabcases)
+        return len(tabcases), lig_voisin, col_voisin
     else:
-        return tabcases.count, None, None
+        return len(tabcases), None, None
+
+#27
