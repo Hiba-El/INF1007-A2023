@@ -133,7 +133,7 @@ def choix_voisin_autour(grille, ligne, col, contenu: Contenu):
     # Si le contenu n'est pas VIDE, le voisin doit être disponible (voir la fonction obtenir_disponibilite).
     # Indice: Utiliser la fonction "ajuster_position_pour_grille_circulaire" pour ajuster les positions des voisins qui sont en dehors de la grille.
     lig_voisin = None
-    lig_colonne = None
+    col_voisin = None
     tabcases = []
     nb_lig, nb_col = obtenir_dimensions(grille)
     for i in range(ligne-1, ligne+1):
@@ -151,4 +151,3 @@ def choix_voisin_autour(grille, ligne, col, contenu: Contenu):
         return tabcases.count, lig_voisin, col_voisin
     else:
         return tabcases.count, None, None
-
